@@ -1,8 +1,7 @@
 import datetime
 from typing import Optional
-
 import jwt
-
+from werkzeug.security import check_password_hash, generate_password_hash
 from models.user import User
 from models.credentials import Credentials
 from repository.user_json_repo import UserJSONRepository
@@ -21,13 +20,17 @@ class AuthService:
             raise ValueError("User already exists")
 
         user = User(username, phone)
-        creds = Credentials(username, password)
+        password_hash = generate_password_hash(password)
+        creds = Credentials(username, password_hash)
         self.repo.add_user(user, creds)
         return user
 
     def login(self, username: str, password: str) -> User:
         creds = self.repo.get_credentials(username)
-        if not creds or creds.password != password:
+        if not creds:
+            raise ValueError("Invalid credentials")
+
+        if not check_password_hash(creds.password, password):
             raise ValueError("Invalid credentials")
 
         return self.repo.get_user(username)

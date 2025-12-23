@@ -71,8 +71,6 @@ class UserJSONRepository:
 
     def get_credentials(self, username: str) -> Optional[Credentials]:
         data = self._load()
-        print(data)
-
         for record in data:
             if record["username"] == username:
                 return Credentials(record["username"], record["password"])

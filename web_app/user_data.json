@@ -1,7 +1,7 @@
 [
   {
     "username": "rohith",
-    "password": "123",
+    "password": "scrypt:32768:8:1$moYB6wjWb98ahXdZ$d017c3753a4114b3b190542d0da5ee435fd61df031a3b6ba46ab250d858e870a3c2d543dd9ec024433fe9a89f99d4d6219b6c358f3831ba43403fb733b671a8f",
     "phonenumber": "123",
     "watchlist": [
       "AAPL",
@@ -30,7 +30,7 @@
   },
   {
     "username": "uday",
-    "password": "123",
+    "password": "scrypt:32768:8:1$moYB6wjWb98ahXdZ$d017c3753a4114b3b190542d0da5ee435fd61df031a3b6ba46ab250d858e870a3c2d543dd9ec024433fe9a89f99d4d6219b6c358f3831ba43403fb733b671a8f",
     "phonenumber": "123",
     "watchlist": [
       "AAPL"
@@ -43,15 +43,8 @@
     ]
   },
   {
-    "username": "1",
-    "password": "1",
-    "phonenumber": "1",
-    "watchlist": [],
-    "expenses": []
-  },
-  {
-    "username": "manan",
-    "password": "123",
+    "username": "test",
+    "password": "scrypt:32768:8:1$Ck5gwsLICC2qG7kJ$3b520dbdb239393563933236834cb2b1c75f0442a069f7a20a7825936107685a6e8baf722977f180ed21bddc32270234d449bb51758dd3e20d727c9b98f35217",
     "phonenumber": "123",
     "watchlist": [],
     "expenses": []

@@ -1,0 +1,18 @@
+{% extends "base.jinja2" %}
+{% block title %}Login | Finance Tracker{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 420px; margin: 0 auto;">
+	<h2 style="margin-top: 0;">Login</h2>
+	<form method="post" class="stack">
+		<label>Username
+			<input name="username" type="text" required>
+		</label>
+		<label>Password
+			<input name="password" type="password" required>
+		</label>
+		<button type="submit">Log in</button>
+	</form>
+	<p style="color: var(--muted); margin-bottom: 0;">New here? <a href="{{ url_for('auth.signup') }}">Create an account</a></p>
+</div>
+{% endblock %}

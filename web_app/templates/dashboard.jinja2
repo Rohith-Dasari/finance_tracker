@@ -1,0 +1,86 @@
+{% extends "base.jinja2" %}
+{% block title %}Dashboard | Finance Tracker{% endblock %}
+
+{% block extra_head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="stack" style="gap:16px;">
+    <div class="card">
+        <div id="chat-log" class="chat-log"></div>
+        <div class="chat-bar">
+            <input id="chat-input" type="text" placeholder="Chat with Finbot..." aria-label="Chat prompt">
+            <button id="chat-send" type="button">Send</button>
+        </div>
+    </div>
+
+    <div class="grid-post-chat">
+        <div class="card">
+            <h2 style="margin:0 0 8px;">Headlines</h2>
+            <div class="headline-list">
+                {% if headlines %}
+                    {% for article in headlines %}
+                        <div class="headline-item">
+                            <a href="{{ article.url }}" target="_blank" rel="noopener">{{ article.headline }}</a>
+                            <div class="headline-meta">{{ article.publisher }}</div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="margin:0; color: var(--muted);">No headlines available.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="stack" style="gap:16px;">
+            <div class="card">
+                <h3 style="margin:0 0 8px;">Top Gainers</h3>
+                {% if top_gainers %}
+                    {% for mover in top_gainers %}
+                        <div class="mover-row">
+                            <div>
+                                <strong>{{ mover.symbol }}</strong><br>
+                                <span style="color: var(--muted);">{{ mover.name }}</span>
+                            </div>
+                            <div>{{ mover.price if mover.price is not none else '-' }}</div>
+                            <div>
+                                {% if mover.change_percent is not none %}
+                                    <span class="pill {{ 'up' if mover.change_percent > 0 else 'down' }}">{{ '%.2f' % mover.change_percent }}%</span>
+                                {% else %}-{% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="margin:0; color: var(--muted);">No gainers.</p>
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h3 style="margin:0 0 8px;">Top Losers</h3>
+                {% if top_losers %}
+                    {% for mover in top_losers %}
+                        <div class="mover-row">
+                            <div>
+                                <strong>{{ mover.symbol }}</strong><br>
+                                <span style="color: var(--muted);">{{ mover.name }}</span>
+                            </div>
+                            <div>{{ mover.price if mover.price is not none else '-' }}</div>
+                            <div>
+                                {% if mover.change_percent is not none %}
+                                    <span class="pill {{ 'up' if mover.change_percent > 0 else 'down' }}">{{ '%.2f' % mover.change_percent }}%</span>
+                                {% else %}-{% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="margin:0; color: var(--muted);">No losers.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+	<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+[
+  {
+    "username": "rohith",
+    "password": "123",
+    "phonenumber": "123",
+    "watchlist": [
+      "AAPL",
+      "NVDA",
+      "TCIEXP.NS",
+      "FOLD"
+    ],
+    "expenses": [
+      {
+        "amount": 250.75,
+        "category": "food"
+      },
+      {
+        "amount": 1200,
+        "category": "rent"
+      },
+      {
+        "amount": 450.0,
+        "category": "movie"
+      },
+      {
+        "amount": 200.0,
+        "category": "food"
+      }
+    ]
+  },
+  {
+    "username": "uday",
+    "password": "123",
+    "phonenumber": "123",
+    "watchlist": [
+      "AAPL"
+    ],
+    "expenses": [
+      {
+        "amount": 700,
+        "category": "Food"
+      }
+    ]
+  },
+  {
+    "username": "1",
+    "password": "1",
+    "phonenumber": "1",
+    "watchlist": [],
+    "expenses": []
+  },
+  {
+    "username": "manan",
+    "password": "123",
+    "phonenumber": "123",
+    "watchlist": [],
+    "expenses": []
+  }
+]

@@ -1,0 +1,6 @@
+Flask
+requests
+yfinance
+fastmcp
+google-generativeai
+PyJWT
